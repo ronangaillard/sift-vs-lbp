@@ -1,5 +1,6 @@
 *.jpg
-photos/
+photos/**/*
+faces_processed/**/*
 cv2.so
 .DS_Store
 .vscode
