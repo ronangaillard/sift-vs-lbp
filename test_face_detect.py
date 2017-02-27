@@ -9,8 +9,8 @@ face_cascade = cv2.CascadeClassifier(OPENCV_PATH + 'haarcascade_frontalface_defa
 eye_cascade = cv2.CascadeClassifier(OPENCV_PATH + 'haarcascade_eye.xml')
 
 i = 0
-for root, dirs, files in os.walk('./photos'):
-    data = [os.path.join(root,f) for f in files]
+for root, dirs, files in os.walk('./photos/'):
+    data = [os.path.join(root,f) for f in files if f.endswith(".jpg")]
     for fi in data:
         img = cv2.imread(fi)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
