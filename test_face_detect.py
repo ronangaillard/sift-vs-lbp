@@ -4,6 +4,10 @@ from matplotlib import pyplot as plt
 import os
 
 OPENCV_PATH = '/usr/local/Cellar/opencv3/HEAD-dcbed8d/share/OpenCV/haarcascades/'
+PROCESSED_FACES_DIR = './faces_processed'
+
+if not os.path.exists(PROCESSED_FACES_DIR):
+    os.makedirs(PROCESSED_FACES_DIR)
 
 face_cascade = cv2.CascadeClassifier(OPENCV_PATH + 'haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier(OPENCV_PATH + 'haarcascade_eye.xml')
@@ -17,5 +21,5 @@ for root, dirs, files in os.walk('./photos/'):
         faces = face_cascade.detectMultiScale(gray, 1.3, 5)
         for (x,y,w,h) in faces:
             crop_img = img[y:y+h, x:x+w]
-            cv2.imwrite('./faces_processed/' + str(i) +'.jpg', crop_img)
+            cv2.imwrite(PROCESSED_FACES_DIR + '/' + str(i) +'.jpg', crop_img)
             i+=1
