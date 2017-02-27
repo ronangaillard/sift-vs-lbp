@@ -28,7 +28,8 @@ sift = cv2.xfeatures2d.SIFT_create()
 
 descriptors = np.array([])
 for pic in train:
-    kp, des = sift.detectAndCompute(pic, None)
+    pic_gray = cv2.cvtColor(pic,cv2.COLOR_BGR2GRAY)
+    kp, des = sift.detectAndCompute(pic_gray, None)
     descriptors = np.append(descriptors, des)
 
 desc = np.reshape(descriptors, (len(descriptors)/128, 128))
