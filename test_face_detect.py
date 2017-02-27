@@ -17,5 +17,5 @@ for root, dirs, files in os.walk('./photos'):
         faces = face_cascade.detectMultiScale(gray, 1.3, 5)
         for (x,y,w,h) in faces:
             crop_img = img[y:y+h, x:x+w]
-            cv2.imwrite('gui' + str(i) +'.jpg', crop_img)
+            cv2.imwrite('./faces_processed/' + str(i) +'.jpg', crop_img)
             i+=1
