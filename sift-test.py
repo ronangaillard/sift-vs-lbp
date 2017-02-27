@@ -5,11 +5,8 @@ from matplotlib import pyplot as plt
 img_original = cv2.imread('guilhem3.jpg')
 img_camera = cv2.imread('guilhem-pirate.jpg')
 
-gray_original = img_original
-gray_camera = img_camera
-
-#gray_original = cv2.cvtColor(img_original,cv2.COLOR_BGR2GRAY)
-#gray_camera = cv2.cvtColor(img_camera,cv2.COLOR_BGR2GRAY)
+gray_original = cv2.cvtColor(img_original,cv2.COLOR_BGR2GRAY)
+gray_camera = cv2.cvtColor(img_camera,cv2.COLOR_BGR2GRAY)
 
 sift = cv2.xfeatures2d.SIFT_create()
 kp_original, des_original = sift.detectAndCompute(gray_original,None)
